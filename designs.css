@@ -1,0 +1,57 @@
+ 
+/* =============================================
+Base styles used by All Screens DO NOT EDIT BELOW
+============================================= */
+ 
+ 
+article, aside, figcaption, figure,
+footer, header, main, nav, section { 
+    display: block;
+}
+ 
+address, article, aside, blockquote, body, cite, 
+div, dl, dt, dd, em, figcaption, figure, footer, 
+h1, h2, h3, h4, h5, h6, header, html, img, 
+li, main, nav, nav a, ol, p, section, span, ul {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;  
+}
+ 
+body {
+    line-height: 1.2em;
+}
+ 
+ul, ol {
+    list-style: none;
+}
+ 
+nav ul {
+    list-style: none;
+    list-style-image: none;
+}
+ 
+nav a {
+    text-decoration: none;
+}
+ 
+/* =============================================
+Base styles used by All Screens DO NOT EDIT ABOVE
+============================================= */
+ 
+/* HTML and Body Styles */
+
+:root {
+    --html-background: rgb(246, 177, 177);
+    --shadow: rgb(51, 51, 51);
+    --nav-active: rgb(220, 27, 27);
+    --spotlight: rgb(, ,);
+    --text-background: rgb(, ,);
+    --text-color: rgb(, ,);
+}
