@@ -58,24 +58,27 @@ Base styles used by All Screens DO NOT EDIT ABOVE
 
 html {
     background-color: var(--html-background);
-    font-family: Verdana, Geneva, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 12px;
 }
 
 body {
     background-color: #ffffff;
     max-width: 1024px;
-    margin: 0 auto;
+    margin: auto;
     box-shadow: var(--shadow) 10px 10px 25px, var(--shadow) -10px 10px 25px;
 }
 
-/* header with direct parent of body */
+body > header {
+    background: #ffffff;
+    width: 100%
+}
 
-img.logoImage {
+img#logoImage {
     display: block;
     width: 100%;
     max-width: 600px;
-    margin: 0 auto;
+    margin: auto;
 }
 
 p {
@@ -84,38 +87,38 @@ p {
     margin: 15px;
 }
 
-/* unordered list items in the navigation with a class of top */ {
+nav.top ul li {
     margin: 10px;
 }
 
-/* /* unordered list items in the navigation with a class of top ANCHOR TAGS */ {
-    /* text color is white */
+nav.top ul li a {
+    color: white;
     display: block;
     font-size: 1.2rem;
     text-align: center;
     padding: 5% 0% 5% 0%;
 }
 
-/* /* unordered list items in the navigation with a class of top ANCHOR TAGS (same as above but when you hover*/ {
-    /* text-color is var(--nav-active) */
+nav.top ul li a:hover {
+    color: var(--nav-active);
     text-shadow: 0px 0px 2px #000000, 0px 0px 15px #ffffff;
 }
 
-/* img in 2nd p tag in the article (use a psuedo class but idk how to do this) */ {
+article p:nth-child(2) img {
     float: right;
     width: 45%;
     margin: 0px 0px 120px 50px;
-    transform: translateY(60px), rotate(30);
+    transform: translate(0, 60px) rotate(30deg);
     box-shadow: var(--shadow) 10px -10px 30px;
 }
 
 section.spotlight {
     background-color: var(--spotlight);
     padding-bottom: 15px;
-    overflow: hidden;
+    overflow: auto;
 }
 
-.spotlight h1 {
+section.spotlight h1 {
     font-size: 2.5rem;
     color: var(--text-color);
     text-shadow: #ffffff -2px 0px 1px, #ffffff -5px 0px 30px;
@@ -123,14 +126,14 @@ section.spotlight {
     text-align: right;
 }
 
-.spotlight img {
+section.spotlight img {
     width: 35%;
     float: left;
     display: block;
     margin: 20px 20px 10px 15px;
 }
 
-.spotlight p {
+section.spotlight p {
     margin-bottom: 0;
 }
 
@@ -153,16 +156,18 @@ aside h1 {
 aside img {
     display: block;
     width: 30%;
-    margin: 0 auto;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin: 5px auto;
 }
 
-aside dl {
+dl {
     text-align: center;
 }
 
-aside dl dt {
+footer {
+    width: 100%;
+}
+
+dl dd {
     margin-bottom: 20px;
 }
 
@@ -171,13 +176,19 @@ nav#bottom {
     color: var(--text-color);
     padding: 15px 15px 15px 15px;
     display: flex;
-    /* make items in here flexbox row
-    make sure items cannot wrap */
+    flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: center;
 }
 
 nav#bottom ul li {
-    color: #ffffff
+    font-size: 1rem;
+    line-height: 1.8rem;
+
+}
+
+nav#bottom li a {
+    color: #ffffff;
 }
 
 footer p {
@@ -190,54 +201,113 @@ footer p {
 }
 
 nav#bottom ul {
-    /* Using flex values only
-        Make sure the item can shrike freely
-        Make sure the item CANNOT grow
-        Make the item have a max width of 150px */
+    flex: 0 1 150px;
 }
 
-@media only screen and (max-width: 480px) {
+@media (max-width: 480px) {
     body {
         background-color: var(--shadow);
         color: var(--text-background)
     }
     aside {
-        /* should not display */
+        display: none;
     }
     article img {
-        /* should be hidden and not display */
+        display: none;
     }
     section.spotlight {
-        /* should be hidden and not display */
+        display: none;
     }
     nav.top ul {
-        display: flexbox;
+        display: flex;
         flex-wrap: wrap;
-        /* position: row; ??? */
+        flex-direction: row;
     }
     nav.top ul li {
         font-size: 2.2rem;
-        /* Using flex values only
-            Make the default size 130px
-            Make it so it can grow and shrink with a value of 1 */
+        flex: 1 1 130px;
     }
     nav.top ul li a {
         padding: 50% 0% 50% 0%;
     }
     nav.top ul li:nth-of-type(1) {
-        /* Set the background to be the image cw_image01.png
-        Make sure the background is centered
-        Make sure the background doesn’t repeat 
-        Make sure the size fits the container it is in */
+        background-image: url(images/cw_image01.png); 
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 
-    /* REPEAT THE ^^ABOVE^^ INSTRUCTIONS FIVE MORE TIMES FOR ALL SIX NAV ITEMS */
+    nav.top ul li:nth-of-type(2) {
+        background-image: url(images/cw_image02.png); 
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    nav.top ul li:nth-of-type(3) {
+        background-image: url(images/cw_image03.png); 
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    nav.top ul li:nth-of-type(4) {
+        background-image: url(images/cw_image04.png); 
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    nav.top ul li:nth-of-type(5) {
+        background-image: url(images/cw_image05.png); 
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    nav.top ul li:nth-of-type(6) {
+        background-image: url(images/cw_image06.png); 
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 
     p#links {
-        display: flexbox;
+        display: flex;
         flex-wrap: nowrap;
-        /* Make it a row */
-        /* Place extrea space around them */
+        flex-direction: row;
+        justify-content: space-around;
     }
+    p#links a {
+        background-color: var(--nav-active);
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 20px;
+    }
+}
 
+@media (min-width: 481px) {
+    body {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+    article {
+        flex: 2 1 400px
+    }
+    aside {
+        flex: 1 2 200px;
+    }
+    nav.top ul {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        background: var(--shadow);
+        height: 50px;
+        justify-content: center;
+        align-items: center;
+    }
+    nav.top ul li {
+        flex: 0 1 80px;
+    }
+    p#links {
+        display: none;
+    }
 }
